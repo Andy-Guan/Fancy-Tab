@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>FancyTab</AssemblyName>
+    <RootNamespace>FancyTab</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>Fancy Tab Team</Authors>
+    <Description>Guitar Tablature Editor - 吉他六线谱编辑器</Description>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="PDFsharp" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\**\*" />
+  </ItemGroup>
+
+</Project>

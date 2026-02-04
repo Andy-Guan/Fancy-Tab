@@ -1,0 +1,48 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+publish/
+
+# .NET SDK (local copy, too large for git)
+Net/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+packages/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Backup files
+*~
+*.bak
+*.swp
+
+# Log files
+*.log
+
+# User-specific files
+*.rsuser
+*.userprefs
