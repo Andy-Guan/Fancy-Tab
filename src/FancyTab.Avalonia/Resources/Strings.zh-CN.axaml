@@ -1,0 +1,115 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- 应用信息 -->
+    <sys:String x:Key="App_Title">Fancy Tab - 吉他六线谱编辑器</sys:String>
+
+    <!-- 菜单 -->
+    <sys:String x:Key="Menu_File">文件</sys:String>
+    <sys:String x:Key="Menu_New">新建</sys:String>
+    <sys:String x:Key="Menu_Open">打开</sys:String>
+    <sys:String x:Key="Menu_Save">保存</sys:String>
+    <sys:String x:Key="Menu_SaveAs">另存为</sys:String>
+    <sys:String x:Key="Menu_ExportPdf">导出PDF</sys:String>
+    <sys:String x:Key="Menu_Exit">退出</sys:String>
+
+    <sys:String x:Key="Menu_Edit">编辑</sys:String>
+    <sys:String x:Key="Menu_Undo">撤销</sys:String>
+    <sys:String x:Key="Menu_Redo">重做</sys:String>
+    <sys:String x:Key="Menu_Cut">剪切</sys:String>
+    <sys:String x:Key="Menu_Copy">复制</sys:String>
+    <sys:String x:Key="Menu_Paste">粘贴</sys:String>
+    <sys:String x:Key="Menu_Delete">删除</sys:String>
+    <sys:String x:Key="Menu_AddMeasure">添加小节</sys:String>
+    <sys:String x:Key="Menu_InsertMeasure">插入小节</sys:String>
+    <sys:String x:Key="Menu_DeleteMeasure">删除小节</sys:String>
+
+    <sys:String x:Key="Menu_View">视图</sys:String>
+    <sys:String x:Key="Menu_ShowNoteNames">显示音名</sys:String>
+    <sys:String x:Key="Menu_ZoomIn">放大</sys:String>
+    <sys:String x:Key="Menu_ZoomOut">缩小</sys:String>
+
+    <sys:String x:Key="Menu_Settings">设置</sys:String>
+    <sys:String x:Key="Menu_Tuning">调弦设置</sys:String>
+    <sys:String x:Key="Menu_Language">语言</sys:String>
+    <sys:String x:Key="Menu_SongInfo">歌曲信息</sys:String>
+
+    <sys:String x:Key="Menu_Help">帮助</sys:String>
+    <sys:String x:Key="Menu_Shortcuts">快捷键</sys:String>
+    <sys:String x:Key="Menu_About">关于</sys:String>
+
+    <!-- 工具栏 -->
+    <sys:String x:Key="ToolBar_New">新建</sys:String>
+    <sys:String x:Key="ToolBar_Open">打开</sys:String>
+    <sys:String x:Key="ToolBar_Save">保存</sys:String>
+    <sys:String x:Key="ToolBar_ExportPdf">导出PDF</sys:String>
+    <sys:String x:Key="ToolBar_AddMeasure">添加小节</sys:String>
+    <sys:String x:Key="ToolBar_NoteNames">显示音名</sys:String>
+
+    <!-- 时值 -->
+    <sys:String x:Key="Duration_Whole">全音符</sys:String>
+    <sys:String x:Key="Duration_Half">二分音符</sys:String>
+    <sys:String x:Key="Duration_Quarter">四分音符</sys:String>
+    <sys:String x:Key="Duration_Eighth">八分音符</sys:String>
+    <sys:String x:Key="Duration_Sixteenth">十六分音符</sys:String>
+    <sys:String x:Key="Duration_Dotted">附点</sys:String>
+
+    <!-- 技巧 -->
+    <sys:String x:Key="Technique_HammerOn">击弦</sys:String>
+    <sys:String x:Key="Technique_PullOff">勾弦</sys:String>
+    <sys:String x:Key="Technique_SlideUp">上滑音</sys:String>
+    <sys:String x:Key="Technique_SlideDown">下滑音</sys:String>
+    <sys:String x:Key="Technique_Bend">推弦</sys:String>
+    <sys:String x:Key="Technique_Vibrato">揉弦</sys:String>
+    <sys:String x:Key="Technique_Harmonic">泛音</sys:String>
+    <sys:String x:Key="Technique_Mute">闷音</sys:String>
+    <sys:String x:Key="Technique_PalmMute">手掌闷音</sys:String>
+
+    <!-- 调弦 -->
+    <sys:String x:Key="Tuning_Standard">标准调弦</sys:String>
+    <sys:String x:Key="Tuning_DropD">Drop D</sys:String>
+    <sys:String x:Key="Tuning_HalfStepDown">降半音</sys:String>
+    <sys:String x:Key="Tuning_Custom">自定义调弦</sys:String>
+
+    <!-- 状态栏 -->
+    <sys:String x:Key="Status_Ready">就绪</sys:String>
+    <sys:String x:Key="Status_Saved">已保存</sys:String>
+    <sys:String x:Key="Status_Modified">已修改</sys:String>
+    <sys:String x:Key="Status_PdfExported">PDF导出成功</sys:String>
+    <sys:String x:Key="Status_PdfExportFailed">PDF导出失败</sys:String>
+
+    <!-- 对话框 -->
+    <sys:String x:Key="Dialog_SaveChanges">是否保存更改？</sys:String>
+    <sys:String x:Key="Dialog_UnsavedChanges">文件有未保存的更改</sys:String>
+    <sys:String x:Key="Dialog_Yes">是</sys:String>
+    <sys:String x:Key="Dialog_No">否</sys:String>
+    <sys:String x:Key="Dialog_Cancel">取消</sys:String>
+
+    <!-- 关于 -->
+    <sys:String x:Key="About_Title">关于 Fancy Tab</sys:String>
+    <sys:String x:Key="About_Version">版本 1.0.0</sys:String>
+    <sys:String x:Key="About_Description">简洁的吉他六线谱编辑器</sys:String>
+
+    <!-- 快捷键帮助 -->
+    <sys:String x:Key="Shortcuts_Title">键盘快捷键</sys:String>
+    <sys:String x:Key="Shortcuts_Navigation">导航</sys:String>
+    <sys:String x:Key="Shortcuts_ArrowKeys">方向键 - 移动光标</sys:String>
+    <sys:String x:Key="Shortcuts_Numbers">0-9 - 输入品数</sys:String>
+    <sys:String x:Key="Shortcuts_Delete">Delete - 删除音符</sys:String>
+    <sys:String x:Key="Shortcuts_Techniques">技巧</sys:String>
+    <sys:String x:Key="Shortcuts_H">H - 击弦</sys:String>
+    <sys:String x:Key="Shortcuts_P">P - 勾弦</sys:String>
+    <sys:String x:Key="Shortcuts_B">B - 推弦</sys:String>
+    <sys:String x:Key="Shortcuts_V">V - 揉弦</sys:String>
+    <sys:String x:Key="Shortcuts_Duration">时值</sys:String>
+    <sys:String x:Key="Shortcuts_W">W - 全音符</sys:String>
+    <sys:String x:Key="Shortcuts_Q">Q - 四分音符</sys:String>
+    <sys:String x:Key="Shortcuts_E">E - 八分音符</sys:String>
+
+    <!-- 帮助提示 -->
+    <sys:String x:Key="HelpTip_Title">快速入门：</sys:String>
+    <sys:String x:Key="HelpTip_Content">按 0-9 输入品数 | 方向键移动光标 | H击弦 P勾弦 B推弦 | 按F1查看完整快捷键</sys:String>
+    <sys:String x:Key="HelpTip_Close">关闭提示</sys:String>
+
+</ResourceDictionary>

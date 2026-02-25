@@ -1,0 +1,203 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="using:FancyTab.Avalonia.Controls"
+        xmlns:models="using:FancyTab.Core.Models"
+        mc:Ignorable="d"
+        x:Class="FancyTab.Avalonia.MainWindow"
+        Title="{Binding WindowTitle}"
+        Width="1100" Height="700"
+        MinWidth="800" MinHeight="500"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+
+    <Window.KeyBindings>
+        <KeyBinding Gesture="Ctrl+N" Command="{Binding NewFileCommand}"/>
+        <KeyBinding Gesture="Ctrl+O" Command="{Binding OpenFileCommand}"/>
+        <KeyBinding Gesture="Ctrl+S" Command="{Binding SaveFileCommand}"/>
+        <KeyBinding Gesture="Ctrl+Shift+S" Command="{Binding SaveFileAsCommand}"/>
+        <KeyBinding Gesture="Ctrl+E" Command="{Binding ExportPdfCommand}"/>
+    </Window.KeyBindings>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*,Auto">
+
+        <!-- 标题栏 -->
+        <Border Grid.Row="0" Padding="16,12" Background="{StaticResource HeaderGradient}">
+            <Grid>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="Fancy Tab" FontSize="20" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text=" - Guitar Tablature Editor" FontSize="14" Foreground="#E1BEE7" 
+                               VerticalAlignment="Bottom" Margin="0,0,0,2"/>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" 
+                           Foreground="#E1BEE7" FontSize="12" Text="F1 Help"/>
+            </Grid>
+        </Border>
+
+        <!-- 菜单栏 -->
+        <Menu Grid.Row="1" Background="{StaticResource SurfaceBrush}">
+            <MenuItem Header="{DynamicResource Menu_File}">
+                <MenuItem Header="{DynamicResource Menu_New}" Command="{Binding NewFileCommand}" 
+                          InputGesture="Ctrl+N"/>
+                <MenuItem Header="{DynamicResource Menu_Open}" Command="{Binding OpenFileCommand}"
+                          InputGesture="Ctrl+O"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource Menu_Save}" Command="{Binding SaveFileCommand}"
+                          InputGesture="Ctrl+S"/>
+                <MenuItem Header="{DynamicResource Menu_SaveAs}" Command="{Binding SaveFileAsCommand}"
+                          InputGesture="Ctrl+Shift+S"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource Menu_ExportPdf}" Command="{Binding ExportPdfCommand}"
+                          InputGesture="Ctrl+E"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource Menu_Exit}" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource Menu_Edit}">
+                <MenuItem Header="{DynamicResource Menu_AddMeasure}" Command="{Binding AddMeasureCommand}"/>
+                <MenuItem Header="{DynamicResource Menu_InsertMeasure}" Command="{Binding InsertMeasureCommand}"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource Menu_View}">
+                <MenuItem Header="{DynamicResource Menu_ShowNoteNames}" Command="{Binding ToggleNoteNamesCommand}"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource Menu_Settings}">
+                <MenuItem Header="{DynamicResource Menu_Tuning}">
+                    <MenuItem Header="Standard" Command="{Binding SetTuningCommand}" CommandParameter="Standard"/>
+                    <MenuItem Header="Drop D" Command="{Binding SetTuningCommand}" CommandParameter="Drop D"/>
+                    <MenuItem Header="Half Step Down" Command="{Binding SetTuningCommand}" CommandParameter="Half Step Down"/>
+                    <MenuItem Header="Full Step Down" Command="{Binding SetTuningCommand}" CommandParameter="Full Step Down"/>
+                    <MenuItem Header="Open G" Command="{Binding SetTuningCommand}" CommandParameter="Open G"/>
+                    <MenuItem Header="Open D" Command="{Binding SetTuningCommand}" CommandParameter="Open D"/>
+                    <MenuItem Header="DADGAD" Command="{Binding SetTuningCommand}" CommandParameter="DADGAD"/>
+                </MenuItem>
+                <MenuItem Header="{DynamicResource Menu_Language}" Command="{Binding ToggleLanguageCommand}"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource Menu_Help}">
+                <MenuItem Header="{DynamicResource Menu_Shortcuts}" Click="Shortcuts_Click"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource Menu_About}" Click="About_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- 工具栏 -->
+        <Border Grid.Row="2" Background="{StaticResource SurfaceBrush}" 
+                BorderBrush="{StaticResource DividerBrush}" BorderThickness="0,0,0,1"
+                Padding="8,4">
+            <WrapPanel>
+                <!-- 文件操作 -->
+                <Button Theme="{StaticResource ToolBarButton}" 
+                        Content="{DynamicResource ToolBar_New}" 
+                        Command="{Binding NewFileCommand}"
+                        ToolTip.Tip="Ctrl+N"/>
+                <Button Theme="{StaticResource ToolBarButton}" 
+                        Content="{DynamicResource ToolBar_Open}" 
+                        Command="{Binding OpenFileCommand}"
+                        ToolTip.Tip="Ctrl+O"/>
+                <Button Theme="{StaticResource ToolBarButton}" 
+                        Content="{DynamicResource ToolBar_Save}" 
+                        Command="{Binding SaveFileCommand}"
+                        ToolTip.Tip="Ctrl+S"/>
+                <Button Theme="{StaticResource ToolBarButton}" 
+                        Content="{DynamicResource ToolBar_ExportPdf}" 
+                        Command="{Binding ExportPdfCommand}"
+                        ToolTip.Tip="Ctrl+E"/>
+
+                <Border Width="1" Background="{StaticResource DividerBrush}" Margin="10,6"/>
+
+                <!-- 小节操作 -->
+                <Button Theme="{StaticResource ToolBarButton}" 
+                        Content="+" 
+                        Command="{Binding AddMeasureCommand}"
+                        ToolTip.Tip="{DynamicResource ToolBar_AddMeasure}"/>
+
+                <Border Width="1" Background="{StaticResource DividerBrush}" Margin="10,6"/>
+
+                <!-- 时值选择 -->
+                <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="W"
+                              IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Whole}}"
+                              ToolTip.Tip="{DynamicResource Duration_Whole}"/>
+                <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="H"
+                              IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Half}}"
+                              ToolTip.Tip="{DynamicResource Duration_Half}"/>
+                <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="Q"
+                              IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Quarter}}"
+                              ToolTip.Tip="{DynamicResource Duration_Quarter}"/>
+                <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="8"
+                              IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Eighth}}"
+                              ToolTip.Tip="{DynamicResource Duration_Eighth}"/>
+                <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="16"
+                              IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Sixteenth}}"
+                              ToolTip.Tip="{DynamicResource Duration_Sixteenth}"/>
+
+                <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="."
+                              IsChecked="{Binding IsDotted}"
+                              ToolTip.Tip="{DynamicResource Duration_Dotted}"
+                              Margin="4,0,0,0"/>
+
+                <Border Width="1" Background="{StaticResource DividerBrush}" Margin="10,6"/>
+
+                <!-- 显示选项 -->
+                <ToggleButton Theme="{StaticResource ToolBarToggleButton}" 
+                              Content="{DynamicResource ToolBar_NoteNames}"
+                              IsChecked="{Binding ShowNoteNames}"/>
+            </WrapPanel>
+        </Border>
+
+        <!-- 快捷提示条 -->
+        <Border Grid.Row="3" Background="#E3F2FD" Padding="10,6"
+                IsVisible="{Binding ShowHelpTip}">
+            <Grid>
+                <TextBlock Foreground="#1976D2" VerticalAlignment="Center">
+                    <Run FontWeight="SemiBold" Text="{DynamicResource HelpTip_Title}"/>
+                    <Run Text="{DynamicResource HelpTip_Content}"/>
+                </TextBlock>
+                <Button HorizontalAlignment="Right" 
+                        Theme="{StaticResource ToolBarButton}"
+                        Content="x" FontSize="10" Padding="6,2"
+                        Command="{Binding HideHelpTipCommand}"
+                        ToolTip.Tip="{DynamicResource HelpTip_Close}"/>
+            </Grid>
+        </Border>
+
+        <!-- 主编辑区域 -->
+        <ScrollViewer Grid.Row="4" 
+                      HorizontalScrollBarVisibility="Auto" 
+                      VerticalScrollBarVisibility="Auto"
+                      Background="{StaticResource BackgroundBrush}">
+            <controls:TabCanvas x:Name="TabEditor"
+                                Song="{Binding Song}"
+                                CurrentMeasure="{Binding CurrentMeasure, Mode=TwoWay}"
+                                CurrentPosition="{Binding CurrentPosition, Mode=TwoWay}"
+                                CurrentString="{Binding CurrentString, Mode=TwoWay}"
+                                ShowNoteNames="{Binding ShowNoteNames}"
+                                MeasuresPerLine="4"
+                                MinHeight="400"
+                                MinWidth="800"
+                                Margin="20"/>
+        </ScrollViewer>
+
+        <!-- 状态栏 -->
+        <Border Grid.Row="5" Background="{StaticResource SurfaceBrush}"
+                BorderBrush="{StaticResource DividerBrush}" BorderThickness="0,1,0,0"
+                Padding="16,10">
+            <Grid ColumnDefinitions="*,Auto,Auto">
+                <TextBlock Grid.Column="0" 
+                           Text="{Binding StatusText}" 
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           VerticalAlignment="Center"/>
+
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Song.Tuning.Name}"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           Margin="20,0"
+                           VerticalAlignment="Center"/>
+
+                <Button Grid.Column="2" 
+                        Theme="{StaticResource ToolBarButton}"
+                        Content="{Binding CurrentLanguage}"
+                        Command="{Binding ToggleLanguageCommand}"
+                        Padding="8,4"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

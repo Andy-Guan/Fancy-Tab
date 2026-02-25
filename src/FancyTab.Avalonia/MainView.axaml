@@ -1,0 +1,89 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="using:FancyTab.Avalonia.Controls"
+             xmlns:models="using:FancyTab.Core.Models"
+             mc:Ignorable="d"
+             x:Class="FancyTab.Avalonia.MainView"
+             Background="{StaticResource BackgroundBrush}">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+        <!-- 标题栏 -->
+        <Border Grid.Row="0" Padding="12,8" Background="{StaticResource HeaderGradient}">
+            <TextBlock Text="Fancy Tab" FontSize="18" FontWeight="Bold" Foreground="White"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- 工具栏 (简化版 for mobile) -->
+        <Border Grid.Row="1" Background="{StaticResource SurfaceBrush}" 
+                BorderBrush="{StaticResource DividerBrush}" BorderThickness="0,0,0,1"
+                Padding="4">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <StackPanel Orientation="Horizontal" Spacing="4">
+                    <!-- 文件操作 -->
+                    <Button Theme="{StaticResource ToolBarButton}" Content="New" Command="{Binding NewFileCommand}"/>
+                    <Button Theme="{StaticResource ToolBarButton}" Content="Open" Command="{Binding OpenFileCommand}"/>
+                    <Button Theme="{StaticResource ToolBarButton}" Content="Save" Command="{Binding SaveFileCommand}"/>
+                    
+                    <Border Width="1" Background="{StaticResource DividerBrush}" Margin="4,6"/>
+                    
+                    <!-- 小节操作 -->
+                    <Button Theme="{StaticResource ToolBarButton}" Content="+" Command="{Binding AddMeasureCommand}"/>
+                    
+                    <Border Width="1" Background="{StaticResource DividerBrush}" Margin="4,6"/>
+                    
+                    <!-- 时值选择 -->
+                    <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="W"
+                                  IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Whole}}"/>
+                    <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="H"
+                                  IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Half}}"/>
+                    <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="Q"
+                                  IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Quarter}}"/>
+                    <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="8"
+                                  IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Eighth}}"/>
+                    <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="16"
+                                  IsChecked="{Binding CurrentDuration, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static models:NoteDuration.Sixteenth}}"/>
+                    <ToggleButton Theme="{StaticResource ToolBarToggleButton}" Content="."
+                                  IsChecked="{Binding IsDotted}"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <!-- 主编辑区域 -->
+        <ScrollViewer Grid.Row="2" 
+                      HorizontalScrollBarVisibility="Auto" 
+                      VerticalScrollBarVisibility="Auto"
+                      Background="{StaticResource BackgroundBrush}">
+            <controls:TabCanvas x:Name="TabEditor"
+                                Song="{Binding Song}"
+                                CurrentMeasure="{Binding CurrentMeasure, Mode=TwoWay}"
+                                CurrentPosition="{Binding CurrentPosition, Mode=TwoWay}"
+                                CurrentString="{Binding CurrentString, Mode=TwoWay}"
+                                ShowNoteNames="{Binding ShowNoteNames}"
+                                MeasuresPerLine="2"
+                                MinHeight="300"
+                                MinWidth="400"
+                                Margin="10"/>
+        </ScrollViewer>
+
+        <!-- 状态栏 -->
+        <Border Grid.Row="3" Background="{StaticResource SurfaceBrush}"
+                BorderBrush="{StaticResource DividerBrush}" BorderThickness="0,1,0,0"
+                Padding="12,8">
+            <Grid ColumnDefinitions="*,Auto">
+                <TextBlock Grid.Column="0" 
+                           Text="{Binding StatusText}" 
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           FontSize="12"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Song.Tuning.Name}"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           FontSize="12"
+                           VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

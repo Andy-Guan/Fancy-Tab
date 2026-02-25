@@ -1,0 +1,152 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Styles.Resources>
+        <!-- 现代配色方案 -->
+        <Color x:Key="PrimaryColor">#5C6BC0</Color>
+        <Color x:Key="PrimaryDarkColor">#3949AB</Color>
+        <Color x:Key="PrimaryLightColor">#C5CAE9</Color>
+        <Color x:Key="AccentColor">#26A69A</Color>
+        <Color x:Key="AccentLightColor">#B2DFDB</Color>
+        <Color x:Key="BackgroundColor">#F5F7FA</Color>
+        <Color x:Key="SurfaceColor">#FFFFFF</Color>
+        <Color x:Key="CardColor">#FFFFFF</Color>
+        <Color x:Key="TextPrimaryColor">#37474F</Color>
+        <Color x:Key="TextSecondaryColor">#78909C</Color>
+        <Color x:Key="DividerColor">#ECEFF1</Color>
+
+        <!-- 画刷 -->
+        <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+        <SolidColorBrush x:Key="PrimaryDarkBrush" Color="{StaticResource PrimaryDarkColor}"/>
+        <SolidColorBrush x:Key="PrimaryLightBrush" Color="{StaticResource PrimaryLightColor}"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+        <SolidColorBrush x:Key="AccentLightBrush" Color="{StaticResource AccentLightColor}"/>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+        <SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource SurfaceColor}"/>
+        <SolidColorBrush x:Key="CardBrush" Color="{StaticResource CardColor}"/>
+        <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimaryColor}"/>
+        <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondaryColor}"/>
+        <SolidColorBrush x:Key="DividerBrush" Color="{StaticResource DividerColor}"/>
+
+        <!-- 渐变背景 -->
+        <LinearGradientBrush x:Key="HeaderGradient" StartPoint="0%,50%" EndPoint="100%,50%">
+            <GradientStop Color="#5C6BC0" Offset="0"/>
+            <GradientStop Color="#7986CB" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- 工具栏按钮样式 -->
+        <ControlTheme x:Key="ToolBarButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="MinWidth" Value="50"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="PART_Border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+            
+            <Style Selector="^:pointerover /template/ Border#PART_Border">
+                <Setter Property="Background" Value="{StaticResource PrimaryLightBrush}"/>
+            </Style>
+            <Style Selector="^:pressed /template/ Border#PART_Border">
+                <Setter Property="Background" Value="#9FA8DA"/>
+            </Style>
+        </ControlTheme>
+
+        <!-- 工具栏切换按钮样式 -->
+        <ControlTheme x:Key="ToolBarToggleButton" TargetType="ToggleButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="MinWidth" Value="36"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="PART_Border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+            
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+            <Style Selector="^:checked /template/ Border#PART_Border">
+                <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#PART_Border">
+                <Setter Property="Background" Value="{StaticResource PrimaryLightBrush}"/>
+            </Style>
+            <Style Selector="^:checked:pointerover /template/ Border#PART_Border">
+                <Setter Property="Background" Value="{StaticResource PrimaryDarkBrush}"/>
+            </Style>
+        </ControlTheme>
+
+        <!-- 主按钮样式 -->
+        <ControlTheme x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="PART_Border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}"
+                            BoxShadow="0 2 8 0 #4D5C6BC0">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+            
+            <Style Selector="^:pointerover /template/ Border#PART_Border">
+                <Setter Property="Background" Value="{StaticResource PrimaryDarkBrush}"/>
+            </Style>
+            <Style Selector="^:pressed /template/ Border#PART_Border">
+                <Setter Property="Background" Value="#303F9F"/>
+            </Style>
+            <Style Selector="^:disabled /template/ Border#PART_Border">
+                <Setter Property="Background" Value="#CFD8DC"/>
+            </Style>
+        </ControlTheme>
+
+        <!-- 卡片样式 -->
+        <ControlTheme x:Key="CardBorder" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource CardBrush}"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="BoxShadow" Value="0 2 12 0 #14000000"/>
+        </ControlTheme>
+    </Styles.Resources>
+
+</Styles>

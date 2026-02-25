@@ -1,0 +1,15 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:FancyTab.Avalonia"
+             xmlns:converters="using:FancyTab.Avalonia.Converters"
+             x:Class="FancyTab.Avalonia.App"
+             RequestedThemeVariant="Light">
+    <Application.Resources>
+        <converters:EnumToBoolConverter x:Key="EnumToBoolConverter"/>
+    </Application.Resources>
+    
+    <Application.Styles>
+        <FluentTheme />
+        <StyleInclude Source="avares://FancyTab.Avalonia/Resources/Styles.axaml"/>
+    </Application.Styles>
+</Application>

@@ -1,0 +1,115 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- App Info -->
+    <sys:String x:Key="App_Title">Fancy Tab - Guitar Tablature Editor</sys:String>
+
+    <!-- Menu -->
+    <sys:String x:Key="Menu_File">File</sys:String>
+    <sys:String x:Key="Menu_New">New</sys:String>
+    <sys:String x:Key="Menu_Open">Open</sys:String>
+    <sys:String x:Key="Menu_Save">Save</sys:String>
+    <sys:String x:Key="Menu_SaveAs">Save As</sys:String>
+    <sys:String x:Key="Menu_ExportPdf">Export PDF</sys:String>
+    <sys:String x:Key="Menu_Exit">Exit</sys:String>
+
+    <sys:String x:Key="Menu_Edit">Edit</sys:String>
+    <sys:String x:Key="Menu_Undo">Undo</sys:String>
+    <sys:String x:Key="Menu_Redo">Redo</sys:String>
+    <sys:String x:Key="Menu_Cut">Cut</sys:String>
+    <sys:String x:Key="Menu_Copy">Copy</sys:String>
+    <sys:String x:Key="Menu_Paste">Paste</sys:String>
+    <sys:String x:Key="Menu_Delete">Delete</sys:String>
+    <sys:String x:Key="Menu_AddMeasure">Add Measure</sys:String>
+    <sys:String x:Key="Menu_InsertMeasure">Insert Measure</sys:String>
+    <sys:String x:Key="Menu_DeleteMeasure">Delete Measure</sys:String>
+
+    <sys:String x:Key="Menu_View">View</sys:String>
+    <sys:String x:Key="Menu_ShowNoteNames">Show Note Names</sys:String>
+    <sys:String x:Key="Menu_ZoomIn">Zoom In</sys:String>
+    <sys:String x:Key="Menu_ZoomOut">Zoom Out</sys:String>
+
+    <sys:String x:Key="Menu_Settings">Settings</sys:String>
+    <sys:String x:Key="Menu_Tuning">Tuning</sys:String>
+    <sys:String x:Key="Menu_Language">Language</sys:String>
+    <sys:String x:Key="Menu_SongInfo">Song Info</sys:String>
+
+    <sys:String x:Key="Menu_Help">Help</sys:String>
+    <sys:String x:Key="Menu_Shortcuts">Keyboard Shortcuts</sys:String>
+    <sys:String x:Key="Menu_About">About</sys:String>
+
+    <!-- Toolbar -->
+    <sys:String x:Key="ToolBar_New">New</sys:String>
+    <sys:String x:Key="ToolBar_Open">Open</sys:String>
+    <sys:String x:Key="ToolBar_Save">Save</sys:String>
+    <sys:String x:Key="ToolBar_ExportPdf">Export PDF</sys:String>
+    <sys:String x:Key="ToolBar_AddMeasure">Add Measure</sys:String>
+    <sys:String x:Key="ToolBar_NoteNames">Note Names</sys:String>
+
+    <!-- Duration -->
+    <sys:String x:Key="Duration_Whole">Whole</sys:String>
+    <sys:String x:Key="Duration_Half">Half</sys:String>
+    <sys:String x:Key="Duration_Quarter">Quarter</sys:String>
+    <sys:String x:Key="Duration_Eighth">Eighth</sys:String>
+    <sys:String x:Key="Duration_Sixteenth">Sixteenth</sys:String>
+    <sys:String x:Key="Duration_Dotted">Dotted</sys:String>
+
+    <!-- Techniques -->
+    <sys:String x:Key="Technique_HammerOn">Hammer-on</sys:String>
+    <sys:String x:Key="Technique_PullOff">Pull-off</sys:String>
+    <sys:String x:Key="Technique_SlideUp">Slide Up</sys:String>
+    <sys:String x:Key="Technique_SlideDown">Slide Down</sys:String>
+    <sys:String x:Key="Technique_Bend">Bend</sys:String>
+    <sys:String x:Key="Technique_Vibrato">Vibrato</sys:String>
+    <sys:String x:Key="Technique_Harmonic">Harmonic</sys:String>
+    <sys:String x:Key="Technique_Mute">Mute</sys:String>
+    <sys:String x:Key="Technique_PalmMute">Palm Mute</sys:String>
+
+    <!-- Tuning -->
+    <sys:String x:Key="Tuning_Standard">Standard</sys:String>
+    <sys:String x:Key="Tuning_DropD">Drop D</sys:String>
+    <sys:String x:Key="Tuning_HalfStepDown">Half Step Down</sys:String>
+    <sys:String x:Key="Tuning_Custom">Custom Tuning</sys:String>
+
+    <!-- Status Bar -->
+    <sys:String x:Key="Status_Ready">Ready</sys:String>
+    <sys:String x:Key="Status_Saved">Saved</sys:String>
+    <sys:String x:Key="Status_Modified">Modified</sys:String>
+    <sys:String x:Key="Status_PdfExported">PDF exported successfully</sys:String>
+    <sys:String x:Key="Status_PdfExportFailed">PDF export failed</sys:String>
+
+    <!-- Dialogs -->
+    <sys:String x:Key="Dialog_SaveChanges">Do you want to save changes?</sys:String>
+    <sys:String x:Key="Dialog_UnsavedChanges">File has unsaved changes</sys:String>
+    <sys:String x:Key="Dialog_Yes">Yes</sys:String>
+    <sys:String x:Key="Dialog_No">No</sys:String>
+    <sys:String x:Key="Dialog_Cancel">Cancel</sys:String>
+
+    <!-- About -->
+    <sys:String x:Key="About_Title">About Fancy Tab</sys:String>
+    <sys:String x:Key="About_Version">Version 1.0.0</sys:String>
+    <sys:String x:Key="About_Description">A clean guitar tablature editor</sys:String>
+
+    <!-- Shortcuts Help -->
+    <sys:String x:Key="Shortcuts_Title">Keyboard Shortcuts</sys:String>
+    <sys:String x:Key="Shortcuts_Navigation">Navigation</sys:String>
+    <sys:String x:Key="Shortcuts_ArrowKeys">Arrow Keys - Move cursor</sys:String>
+    <sys:String x:Key="Shortcuts_Numbers">0-9 - Input fret number</sys:String>
+    <sys:String x:Key="Shortcuts_Delete">Delete - Delete note</sys:String>
+    <sys:String x:Key="Shortcuts_Techniques">Techniques</sys:String>
+    <sys:String x:Key="Shortcuts_H">H - Hammer-on</sys:String>
+    <sys:String x:Key="Shortcuts_P">P - Pull-off</sys:String>
+    <sys:String x:Key="Shortcuts_B">B - Bend</sys:String>
+    <sys:String x:Key="Shortcuts_V">V - Vibrato</sys:String>
+    <sys:String x:Key="Shortcuts_Duration">Duration</sys:String>
+    <sys:String x:Key="Shortcuts_W">W - Whole note</sys:String>
+    <sys:String x:Key="Shortcuts_Q">Q - Quarter note</sys:String>
+    <sys:String x:Key="Shortcuts_E">E - Eighth note</sys:String>
+
+    <!-- Help Tip -->
+    <sys:String x:Key="HelpTip_Title">Quick Start:</sys:String>
+    <sys:String x:Key="HelpTip_Content">Press 0-9 for fret | Arrow keys to move | H hammer P pull B bend | F1 for shortcuts</sys:String>
+    <sys:String x:Key="HelpTip_Close">Close tip</sys:String>
+
+</ResourceDictionary>
